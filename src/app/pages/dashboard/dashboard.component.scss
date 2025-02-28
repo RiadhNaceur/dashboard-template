@@ -9,6 +9,12 @@
     align-items: center;  
     justify-content: space-between;
 
+    @media (max-width: 800px) {
+      &{
+        padding-top: 3rem;
+      }
+    }
+    
     .right-header {
         line-height: 15px;
 
@@ -85,13 +91,21 @@
 
 .date-picker-container {
     display: flex;
-    flex: 50%;
+    flex: 18%;
     align-items: center;
     gap: 8px;
   }
 
 .portal-buttons {
-    flex: 50%
+    flex: 50%;
+
+    @media (max-width: 1172px) {
+      &{
+        flex: 100%;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+    }
 }
 
 @media (max-width: 800px) {

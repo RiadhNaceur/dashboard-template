@@ -62,23 +62,23 @@ export class DashboardComponent implements OnInit {
 
         this.matIconRegistry.addSvgIcon(
             "message",
-            this.domSanitizer.bypassSecurityTrustResourceUrl("/message.svg")
+            this.domSanitizer.bypassSecurityTrustResourceUrl("assets/message.svg")
         );
         this.matIconRegistry.addSvgIcon(
             "columns",
-            this.domSanitizer.bypassSecurityTrustResourceUrl("/columns.svg")
+            this.domSanitizer.bypassSecurityTrustResourceUrl("assets/columns.svg")
         );
         this.matIconRegistry.addSvgIcon(
             "export",
-            this.domSanitizer.bypassSecurityTrustResourceUrl("/export.svg")
+            this.domSanitizer.bypassSecurityTrustResourceUrl("assets/export.svg")
         );
         this.matIconRegistry.addSvgIcon(
             "arrow",
-            this.domSanitizer.bypassSecurityTrustResourceUrl("/next.svg")
+            this.domSanitizer.bypassSecurityTrustResourceUrl("assets/next.svg")
         );
         this.matIconRegistry.addSvgIcon(
             "details",
-            this.domSanitizer.bypassSecurityTrustResourceUrl("/details.svg")
+            this.domSanitizer.bypassSecurityTrustResourceUrl("assets/details.svg")
         );
     }
 

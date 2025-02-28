@@ -1,10 +1,12 @@
 {
   "name": "inflektion-fe",
   "version": "0.0.0",
+  "homepage": "https://riadhnaceur.github.io/inflektion-FE",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "ng build --configuration production && gh-pages -d dist/inflektion-fe",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

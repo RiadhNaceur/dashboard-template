@@ -25,15 +25,15 @@ export class SidebarComponent implements OnInit {
   ) {
     this.matIconRegistry.addSvgIcon(
       "home",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("/home.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/home.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "partners",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("/partners.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/partners.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "approvals",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("/approvals.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/approvals.svg")
     );
   }
 

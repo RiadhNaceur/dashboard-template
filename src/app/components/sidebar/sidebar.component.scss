@@ -86,6 +86,7 @@
 @media (max-width: 800px) {
   .sidebar {
     transform: translateX(-100%);
+    padding-top: 5rem;
   }
 
   .sidebar.open {
@@ -95,6 +96,6 @@
 }
 
 .humburger-menu{
-  position: relative;
+  position: fixed;
   z-index: 9999;
 }
