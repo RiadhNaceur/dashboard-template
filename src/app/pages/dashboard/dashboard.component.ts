@@ -173,5 +173,43 @@ export class DashboardComponent implements OnInit {
         alert('Details');
     }
     showMessage() { alert('Message Partners Clicked'); }
-    exportList() { alert('Export List Clicked'); }
+
+    exportList(): void {
+        const data = this.partners();
+        this.downloadCSV(data, 'partners');
+    }
+
+    downloadCSV(data: Partner[], filename: string) {
+        const csvContent = this.convertToCSV(data);
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        if (link.download !== undefined) {
+            link.setAttribute('href', URL.createObjectURL(blob));
+            link.setAttribute('download', filename + '.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    }
+    convertToCSV(data: Partner[]): string {
+        const csvData = [];
+        const headers = ['ID', 'Name', 'Type', 'Contract', 'Gross Sales', 'Commissions', 'Conversions'];
+        csvData.push(headers.join(','));
+
+        data.forEach((partner) => {
+            const line = [
+                partner.id,
+                partner.partnerName,
+                partner.partnerType,
+                partner.contract,
+                partner.grosssales,
+                partner.commissions,
+                partner.conversions,
+            ].join(',');
+            csvData.push(line);
+        });
+
+        return csvData.join('\n');
+    }
 }
