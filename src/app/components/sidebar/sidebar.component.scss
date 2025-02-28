@@ -4,9 +4,9 @@
   background: transparent;
   color: white;
   font-family: 'Poppins', sans-serif;
+  position: fixed;
   top: 0;
   left: 0;
-  position: fixed;
   padding: 20px;
   box-sizing: border-box;
   z-index: 1000;
@@ -83,6 +83,11 @@
   z-index: 1001;
 }
 
+.humburger-menu {
+  position: fixed;
+  z-index: 9999;
+}
+
 @media (max-width: 800px) {
   .sidebar {
     transform: translateX(-100%);
@@ -93,9 +98,4 @@
     transform: translateX(0);
     background: #FFF;
   }
-}
-
-.humburger-menu{
-  position: fixed;
-  z-index: 9999;
 }

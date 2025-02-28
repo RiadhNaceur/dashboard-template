@@ -1,223 +1,210 @@
-
 .header {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    line-height: 13px;
-    margin-top: -18px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;  
-    justify-content: space-between;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 13px;
+  margin-top: -18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 
-    @media (max-width: 800px) {
-      &{
-        padding-top: 3rem;
-      }
+  @media (max-width: 800px) {
+    padding-top: 3rem;
+  }
+
+  .right-header {
+    line-height: 15px;
+
+    .initials {
+      background-color: #FF14B9;
+      color: #FFF;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      float: left;
+      margin-right: 7px;
     }
 
-    .right-header {
-        line-height: 15px;
-
-        .initials {
-            background-color: #FF14B9;
-            color: #FFF;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            line-height: 32px;
-            text-align: center;
-            float: left;
-            margin-right: 7px;
-        }
-
-        .username {
-            float: right;
-        }
+    .username {
+      float: right;
     }
-    .left-header {
-      flex: 50%;
+  }
 
-      @media (max-width: 500px) {
-        .left-header{
-          flex: 100% !important;
-        }
-      }
+  .left-header {
+    flex: 50%;
+
+    @media (max-width: 500px) {
+      flex: 100% !important;
     }
+  }
 
-    .title {
+  .title {
     font-size: 24px;
-    }
-    .subtitle {
-        font-size: 16px;
-        color: #9097B9;
-    }
   }
-  
-  .spinner {
-    display: block;
-    margin: auto;
+
+  .subtitle {
+    font-size: 16px;
+    color: #9097B9;
   }
-  
-  table {
-    width: 100%;
+}
+
+.spinner {
+  display: block;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 33px;
+  text-align: center;
+
+  button {
+    margin: 5px;
   }
-  
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 33px;
-    text-align: center;
-    
-    button {
-      margin: 5px;
-    }
-  }
-  
+}
+
 .mat-elevation-z8 {
-    width: 100%;
-    border-radius: 9px;
-    overflow: hidden; 
-	box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)
+  width: 100%;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
+
 .btn-icon {
-    order: 2;
-    margin-left: 10px !important;
-    margin-right: 0 !important;
+  order: 2;
+  margin-left: 10px !important;
+  margin-right: 0 !important;
 }
+
 .mat-portal-btn-bg {
-    background: linear-gradient(209.23deg, #5E33CE -49.55%, #1E0B50 82.75%), #5E33CE;
+  background: linear-gradient(209.23deg, #5E33CE -49.55%, #1E0B50 82.75%), #5E33CE;
 }
 
 .date-picker-container {
-    display: flex;
-    flex: 18%;
-    align-items: center;
-    gap: 8px;
-  }
+  display: flex;
+  flex: 18%;
+  align-items: center;
+  gap: 8px;
+}
 
 .portal-buttons {
-    flex: 50%;
+  flex: 50%;
 
-    @media (max-width: 1172px) {
-      &{
-        flex: 100%;
-        margin-bottom: 20px;
-        text-align: left;
-      }
-    }
+  @media (max-width: 1172px) {
+    flex: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+  }
 }
 
 @media (max-width: 800px) {
-  .date-picker-container, .portal-buttons{
+  .date-picker-container, .portal-buttons {
     flex: 100% !important;
   }
 }
 
-  mat-form-field {
-    width: 300px;
-  }
-  
+mat-form-field {
+  width: 300px;
+}
 
-  .datepicker-item {
-    color: #031050 !important;
-  }
+.datepicker-item {
+  color: #031050 !important;
+}
 
 .custom-datepicker .mdc-notched-outline {
-  display: none !important; 
+  display: none !important;
 }
 
 .custom-datepicker .mat-mdc-text-field-wrapper {
-  background: transparent !important; 
+  background: transparent !important;
   box-shadow: none !important;
-  border: none !important; 
+  border: none !important;
 }
+
 .mdc-notched-outline {
   box-shadow: 0px 3px 10px rgba(43, 54, 116, 0.1);
 }
 
 .table-container {
-    overflow-x: auto;
-    border-radius: 9px;
-    overflow: hidden;
+  overflow-x: auto;
+  border-radius: 9px;
+  overflow: hidden;
 }
 
 .pagination {
-    margin-top: 3rem;
-    text-align: center;
-    button {
-        margin: 0 8px;
-        padding: 8px 16px;
-        cursor: pointer;
-    }
-    span {
-        margin: 0 8px;
-    }
+  margin-top: 3rem;
+  text-align: center;
+
+  button {
+    margin: 0 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+
+  span {
+    margin: 0 8px;
+  }
 }
 
 .next-icon, .previous-icon {
-    cursor: pointer;
-    stroke: #031050;
-    fill: #FFF;
-    width: 31px;
-    height: 31px;
+  cursor: pointer;
+  stroke: #031050;
+  fill: #FFF;
+  width: 31px;
+  height: 31px;
 
-    &.disabled {
-        stroke-opacity: 0.5;
-    }
+  &.disabled {
+    stroke-opacity: 0.5;
+  }
 }
 
 .previous-icon {
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .current-page {
-    background: #4F26B8;
-    padding: 2px;
-    border-radius: 50%;
-    width: 31px;
-    height: 31px;
-    text-align: center;
-    line-height: 31px;
-    color: #FFF;
+  background: #4F26B8;
+  padding: 2px;
+  border-radius: 50%;
+  width: 31px;
+  height: 31px;
+  text-align: center;
+  line-height: 31px;
+  color: #FFF;
 }
 
 .pagination-control {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 th {
-    cursor: pointer;
-    user-select: none;
+  cursor: pointer;
+  user-select: none;
 }
 
 button.portal-btn.details-btn.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-purple.mat-mdc-button-base {
-    background-color: #5E33CE;
+  background-color: #5E33CE;
 }
 
 .filter-container {
-    display: flex;
-    justify-content: flex-start;
-
-    input{
-        padding: 10px;
-        border-radius: 3px;
-        border: 1px solid;
-        width: 200px;
-    }
-    
-}
-
-.flex-container {
   display: flex;
-  flex-wrap: wrap;
-  font-size: 30px;
-  text-align: center;
+  justify-content: flex-start;
+
+  input {
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid;
+    width: 200px;
+  }
 }
 
 .error-message {

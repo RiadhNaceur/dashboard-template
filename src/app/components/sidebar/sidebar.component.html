@@ -8,14 +8,12 @@
         <span class="sidebar-icon">
           <mat-icon [svgIcon]="link.icon"></mat-icon>
         </span>
-        <a [routerLink]="link.path">
-          {{ link.name }}
-        </a>
+        <a [routerLink]="link.path">{{ link.name }}</a>
       </li>
     </ul>
   </nav>
 </aside>
 
 <button mat-icon-button class="humburger-menu" (click)="toggleSidebar()" *ngIf="isMobile">
-<mat-icon>menu</mat-icon>
+  <mat-icon>menu</mat-icon>
 </button>
