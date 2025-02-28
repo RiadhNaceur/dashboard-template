@@ -14,7 +14,7 @@
         padding-top: 3rem;
       }
     }
-    
+
     .right-header {
         line-height: 15px;
 
@@ -60,7 +60,6 @@
   
   table {
     width: 100%;
-    margin-top: 20px;
   }
   
   .actions {
@@ -143,7 +142,7 @@
 }
 
 .pagination {
-    margin-top: 16px;
+    margin-top: 3rem;
     text-align: center;
     button {
         margin: 0 8px;
@@ -226,4 +225,9 @@ button.portal-btn.details-btn.mdc-button.mdc-button--raised.mat-mdc-raised-butto
   color: red;
   text-align: center;
   margin-top: 12rem;
+}
+
+.table-container {
+  margin-top: 20px;
+  padding-bottom: 5rem;
 }
