@@ -77,3 +77,49 @@
 .mdc-notched-outline {
   box-shadow: 0px 3px 10px rgba(43, 54, 116, 0.1);
 }
+
+.table-container {
+    overflow-x: auto;
+}
+
+.pagination {
+    margin-top: 16px;
+    text-align: center;
+    button {
+        margin: 0 8px;
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+    span {
+        margin: 0 8px;
+    }
+}
+
+.next-icon, .previous-icon {
+    cursor: pointer;
+    stroke: #031050;
+    fill: #FFF;
+    width: 31px;
+    height: 31px;
+
+    &.disabled {
+        stroke-opacity: 0.5;
+    }
+}
+
+.current-page {
+    background: #4F26B8;
+    padding: 2px;
+    border-radius: 50%;
+    width: 31px;
+    height: 31px;
+    text-align: center;
+    line-height: 31px;
+    color: #FFF;
+}
+
+.pagination-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
