@@ -1,4 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #FCFCFC;
+}
+.mat-mdc-cell, .mat-mdc-header-cell, .portal-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 300 !important;
+}
+.mat-mdc-cell {
+    color: #031050;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-mdc-header-row {
+    background: #031050 !important;
+}
+
+.mat-mdc-header-cell {
+    color: #F8FCFF; 
+}
+
+.mat-mdc-row {
+    background: #F4F7FE !important;
+}
+
+.mat-table{    
+    border-radius: 8px;
+    overflow:hidden !important;
+}
+
+.portal-btn {
+    color: #FFF !important;
+}

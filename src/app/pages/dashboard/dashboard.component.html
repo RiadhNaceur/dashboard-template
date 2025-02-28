@@ -1,0 +1,78 @@
+
+<div class="header">
+    <h1 class="title"> Power Plate </h1>
+    <h2 class="subtitle"> Dashboard</h2>    
+</div>
+
+<div class="actions">
+    <div class="date-picker-container">
+        <mat-form-field appearance="outline">
+          <mat-label class="datepicker-item">Select Date Range</mat-label>
+          <mat-icon class="datepicker-item" matPrefix>event</mat-icon>
+          <mat-date-range-input [rangePicker]="picker" [formGroup]="dateRange">
+            <input matStartDate class="datepicker-item" placeholder="Start date" formControlName="start">
+            <input matEndDate class="datepicker-item" placeholder="End date" formControlName="end">
+          </mat-date-range-input>
+          <mat-datepicker-toggle class="datepicker-item" matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker class="datepicker-item" #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+      
+     <div class="portal-buttons">
+        <button mat-raised-button class="portal-btn" color="portal-btn-bg" (click)="showMessage()">
+            <span>Choose Columns</span>
+            <mat-icon class="btn-icon" svgIcon="columns"></mat-icon>
+        </button>
+        <button mat-raised-button class="portal-btn" color="portal-btn-bg" (click)="showMessage()">
+            <span>Message Partners</span>
+            <mat-icon class="btn-icon" svgIcon="message"></mat-icon>
+        </button>
+        <button mat-raised-button class="portal-btn" color="portal-btn-bg" (click)="exportList()">
+            <span>Export List</span>
+            <mat-icon class="btn-icon" svgIcon="export"></mat-icon>
+        </button>
+    </div> 
+  </div>
+
+  <mat-spinner *ngIf="loading()" class="spinner"></mat-spinner>
+
+
+<table mat-table [dataSource]="partners()" *ngIf="!loading()" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+  
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.partnerName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.partnerType }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="contract">
+    <th mat-header-cell *matHeaderCellDef>Contract</th>
+    <td mat-cell *matCellDef="let element">{{ element.contract }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="grossSales">
+    <th mat-header-cell *matHeaderCellDef>Gross Sales</th>
+    <td mat-cell *matCellDef="let element">${{ element.grossSales }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="commissions">
+    <th mat-header-cell *matHeaderCellDef>Commissions</th>
+    <td mat-cell *matCellDef="let element">${{ element.commissions }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="conversions">
+    <th mat-header-cell *matHeaderCellDef>Conversions</th>
+    <td mat-cell *matCellDef="let element">{{ element.conversions }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
