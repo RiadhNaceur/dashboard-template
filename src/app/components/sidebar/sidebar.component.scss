@@ -1,4 +1,3 @@
-
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -9,63 +8,93 @@
   left: 0;
   position: fixed;
   padding: 20px;
-}
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: transform 0.3s;
+  overflow: hidden;
 
-.logo {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-nav ul li {
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-  padding: 8px;
-
-}
-
-.sidebar-icon {
-    margin-left: 10px;
-    
-}
-
-::ng-deep li .sidebar-icon mat-icon svg {
-    fill: #031050;
-    fill-opacity: 0.5;
-}
-
-nav {
-    margin-top: 40px;
- }
-
-nav ul li a {
-  text-decoration: none;
-  color: #031050;
-  opacity: 0.5;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  font-weight: 400;
-  padding: 10px;
-  transition: background 0.3s;
-}
-
-nav ul li.active-link, nav ul li:hover {
-  background: #031050;
-  border-left: 6px solid #FF13B8;
-  a {
-    color: #FFF;
-    opacity: 1;
+  &.open {
+    transform: translateX(0);
   }
-  ::ng-deep .sidebar-icon mat-icon svg {
-    fill: #FF13B8;
-    fill-opacity: 1;
+
+  .logo {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
   }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      padding: 8px;
+
+      .sidebar-icon {
+        margin-left: 10px;
+      }
+
+      ::ng-deep .sidebar-icon mat-icon svg {
+        fill: #031050;
+        fill-opacity: 0.5;
+      }
+
+      a {
+        text-decoration: none;
+        color: #031050;
+        opacity: 0.5;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 10px;
+        transition: background 0.3s;
+      }
+
+      &.active-link,
+      &:hover {
+        background: #031050;
+        border-left: 6px solid #FF13B8;
+
+        a {
+          color: #FFF;
+          opacity: 1;
+        }
+
+        ::ng-deep .sidebar-icon mat-icon svg {
+          fill: #FF13B8;
+          fill-opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.mat-icon-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    background: #FFF;
+  }
+}
+
+.humburger-menu{
+  position: relative;
+  z-index: 9999;
 }

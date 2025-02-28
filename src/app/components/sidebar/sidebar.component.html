@@ -1,18 +1,21 @@
-<aside class="sidebar">
-    <div class="logo">
-      <img src="/logo.png" alt="logo_inflektion">
-    </div>
-    <nav >
-      <ul>
-          <li *ngFor="let link of links" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
-            <span class="sidebar-icon">
-                <mat-icon [svgIcon]="link.icon"></mat-icon>
-            </span>
-            <a [routerLink]="link.path">
-                {{ link.name }}
-            </a>
-          </li>
-      </ul>
-    </nav>
-  </aside>
-  
+<aside class="sidebar" [ngClass]="{'open': isSidebarOpen}">
+  <div class="logo">
+    <img src="/logo.png" alt="logo_inflektion">
+  </div>
+  <nav>
+    <ul>
+      <li *ngFor="let link of links" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <span class="sidebar-icon">
+          <mat-icon [svgIcon]="link.icon"></mat-icon>
+        </span>
+        <a [routerLink]="link.path">
+          {{ link.name }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+<button mat-icon-button class="humburger-menu" (click)="toggleSidebar()" *ngIf="isMobile">
+<mat-icon>menu</mat-icon>
+</button>

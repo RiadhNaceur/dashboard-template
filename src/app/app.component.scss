@@ -2,13 +2,13 @@
     margin-left: 16rem;
 }
 
-.app-container {
-    display: flex;
-  }
-  
   .main-content {
     flex: 1;
     padding: 20px;
     margin-left: 17rem;
+
+    @media (max-width: 800px) {
+      margin-left: 0;
+    }
   }
   

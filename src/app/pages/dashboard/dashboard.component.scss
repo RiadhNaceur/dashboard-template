@@ -5,6 +5,7 @@
     line-height: 13px;
     margin-top: -18px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;  
     justify-content: space-between;
 
@@ -27,7 +28,16 @@
             float: right;
         }
     }
-    
+    .left-header {
+      flex: 50%;
+
+      @media (max-width: 500px) {
+        .left-header{
+          flex: 100% !important;
+        }
+      }
+    }
+
     .title {
     font-size: 24px;
     }
@@ -49,6 +59,7 @@
   
   .actions {
     display: flex;
+    flex-wrap: wrap;
     margin-top: 33px;
     text-align: center;
     
@@ -74,12 +85,19 @@
 
 .date-picker-container {
     display: flex;
+    flex: 50%;
     align-items: center;
     gap: 8px;
   }
 
 .portal-buttons {
-    flex: 1;
+    flex: 50%
+}
+
+@media (max-width: 800px) {
+  .date-picker-container, .portal-buttons{
+    flex: 100% !important;
+  }
 }
 
   mat-form-field {
@@ -180,4 +198,12 @@ button.portal-btn.details-btn.mdc-button.mdc-button--raised.mat-mdc-raised-butto
         width: 200px;
     }
     
+}
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
 }
