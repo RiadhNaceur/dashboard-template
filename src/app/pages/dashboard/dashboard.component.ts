@@ -46,13 +46,13 @@ export class DashboardComponent implements OnInit {
         start: new FormControl(new Date(2022, 6, 6)),
         end: new FormControl(new Date(2022, 7, 5))
     });
-
+    error = '';
     itemsPerPage = 15;
     currentPage = 1;
     totalPages = 1;
     totalItems = 0;
     paginatedData = signal<Partner[]>([]);
-    sortConfig: SortConfig  = { column: '', descending: false };
+    sortConfig: SortConfig = { column: '', descending: false };
     filterInput = '';
 
     constructor(
@@ -83,13 +83,19 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.partnerPortalService.getPartners().subscribe(data => {
-            this.partners.set(data);
-            this.totalItems = data.length;
-            this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
-            this.currentPage = 1;
-            this.updatePaginatedData();
-            this.loading.set(false);
+        this.partnerPortalService.getPartners().subscribe({
+            next: (data) => {
+                this.partners.set(data);
+                this.totalItems = data.length;
+                this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+                this.currentPage = 1;
+                this.updatePaginatedData();
+                this.loading.set(false);
+            },
+            error: (err) => {
+                this.error = err.message;
+                this.loading.set(false);
+            }
         });
 
     }

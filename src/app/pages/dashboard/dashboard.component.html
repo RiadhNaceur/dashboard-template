@@ -1,20 +1,25 @@
 <div class="header">
-    <div class="left-header">
-        <h1 class="title"> Power Plate </h1>
-        <h2 class="subtitle"> Dashboard</h2>  
-    </div>  
-    <div class="right-header">
-        <div class="initials"> HD </div>
-        <div class="username"> TEST </div>
-        <div class="role"> User </div>
-    </div>
+  <div class="left-header">
+    <h1 class="title"> Power Plate </h1>
+    <h2 class="subtitle"> Dashboard</h2>
+  </div>
+  <div class="right-header">
+    <div class="initials"> HD </div>
+    <div class="username"> TEST </div>
+    <div class="role"> User </div>
+  </div>
 </div>
 
 <mat-spinner *ngIf="loading(); else content" class="spinner"></mat-spinner>
 
 <ng-template #content>
-<div class="actions">
-    <div class="date-picker-container">
+  <div *ngIf="error; else successContent" class="error-message">
+    <strong>Opps! something went wrong:</strong> {{ error }}
+    <p>Please try again later.</p>
+  </div>
+  <ng-template #successContent>
+    <div class="actions">
+      <div class="date-picker-container">
         <mat-form-field appearance="outline">
           <mat-label class="datepicker-item">Select Date Range</mat-label>
           <mat-icon class="datepicker-item" matPrefix>event</mat-icon>
@@ -26,85 +31,89 @@
           <mat-date-range-picker class="datepicker-item" #picker></mat-date-range-picker>
         </mat-form-field>
       </div>
-      
-     <div class="portal-buttons">
+
+      <div class="portal-buttons">
         <button mat-raised-button class="portal-btn" color="portal-btn-bg" (click)="showMessage()">
-            <span>Choose Columns</span>
-            <mat-icon class="btn-icon" svgIcon="columns"></mat-icon>
+          <span>Choose Columns</span>
+          <mat-icon class="btn-icon" svgIcon="columns"></mat-icon>
         </button>
         <button mat-raised-button class="portal-btn" color="portal-btn-bg" (click)="showMessage()">
-            <span>Message Partners</span>
-            <mat-icon class="btn-icon" svgIcon="message"></mat-icon>
+          <span>Message Partners</span>
+          <mat-icon class="btn-icon" svgIcon="message"></mat-icon>
         </button>
         <button mat-raised-button class="portal-btn" color="portal-btn-bg" (click)="exportList()">
-            <span>Export List</span>
-            <mat-icon class="btn-icon" svgIcon="export"></mat-icon>
+          <span>Export List</span>
+          <mat-icon class="btn-icon" svgIcon="export"></mat-icon>
         </button>
-    </div> 
-  </div>
-
-  <div class="filter-container">
-    <input type="text" placeholder="Filter by Name, Type, or Contract" [(ngModel)]="filterInput" (input)="updatePaginatedData()">
-</div>
-
-<table mat-table [dataSource]="paginatedData()" *ngIf="!loading()" class="mat-elevation-z8">
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef (click)="onSort('id')">ID</th>
-    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-  </ng-container>
-  
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef (click)="onSort('partnerName')">Name</th>
-    <td mat-cell *matCellDef="let element">{{ element.partnerName }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef (click)="onSort('partnerType')">Type</th>
-    <td mat-cell *matCellDef="let element">{{ element.partnerType }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="contract">
-    <th mat-header-cell *matHeaderCellDef (click)="onSort('contract')">Contract</th>
-    <td mat-cell *matCellDef="let element">{{ element.contract }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="grossSales">
-    <th mat-header-cell *matHeaderCellDef (click)="onSort('grosssales')">Gross Sales</th>
-    <td mat-cell *matCellDef="let element">${{ element.grosssales }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="commissions">
-    <th mat-header-cell *matHeaderCellDef (click)="onSort('commissions')">Commissions</th>
-    <td mat-cell *matCellDef="let element">${{ element.commissions }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="conversions" >
-    <th mat-header-cell *matHeaderCellDef (click)="onSort('conversions')">Conversions</th>
-    <td mat-cell *matCellDef="let element">{{ element.conversions }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="details">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-raised-button class="portal-btn details-btn" color="purple" (click)="alertButton()">
-        <mat-icon class="btn-icon" svgIcon="details"></mat-icon>
-        Details
-      </button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-
-<div class="pagination">
-    <div class="pagination-text"> Showing {{ getItemsStart() }}-{{ getItemsEnd() }} of {{ totalItems }} entries</div>
-    <div class="pagination-control">
-        <mat-icon class="previous-icon" [class.disabled] = "currentPage === 1" svgIcon="arrow" (click)="prevPage()"></mat-icon>
-        <span class="current-page">{{currentPage}}</span>
-        <mat-icon class="next-icon" [class.disabled] = "currentPage === totalPages" svgIcon="arrow" (click)="nextPage()"></mat-icon>
+      </div>
     </div>
-</div>
 
+    <div class="filter-container">
+      <input type="text" placeholder="Filter by Name, Type, or Contract" [(ngModel)]="filterInput"
+        (input)="updatePaginatedData()">
+    </div>
+
+    <table mat-table [dataSource]="paginatedData()" *ngIf="!loading()" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef (click)="onSort('id')">ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef (click)="onSort('partnerName')">Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.partnerName || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef (click)="onSort('partnerType')">Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.partnerType || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="contract">
+        <th mat-header-cell *matHeaderCellDef (click)="onSort('contract')">Contract</th>
+        <td mat-cell *matCellDef="let element">{{ element.contract || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="grossSales">
+        <th mat-header-cell *matHeaderCellDef (click)="onSort('grosssales')">Gross Sales</th>
+        <td mat-cell *matCellDef="let element">${{ element.grosssales || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="commissions">
+        <th mat-header-cell *matHeaderCellDef (click)="onSort('commissions')">Commissions</th>
+        <td mat-cell *matCellDef="let element">${{ element.commissions || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="conversions">
+        <th mat-header-cell *matHeaderCellDef (click)="onSort('conversions')">Conversions</th>
+        <td mat-cell *matCellDef="let element">{{ element.conversions || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button class="portal-btn details-btn" color="purple" (click)="alertButton()">
+            <mat-icon class="btn-icon" svgIcon="details"></mat-icon>
+            Details
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+    <div class="pagination">
+      <div class="pagination-text"> Showing {{ getItemsStart() }}-{{ getItemsEnd() }} of {{ totalItems }} entries</div>
+      <div class="pagination-control">
+        <mat-icon class="previous-icon" [class.disabled]="currentPage === 1" svgIcon="arrow"
+          (click)="prevPage()"></mat-icon>
+        <span class="current-page">{{currentPage}}</span>
+        <mat-icon class="next-icon" [class.disabled]="currentPage === totalPages" svgIcon="arrow"
+          (click)="nextPage()"></mat-icon>
+      </div>
+    </div>
+
+  </ng-template>
 </ng-template>

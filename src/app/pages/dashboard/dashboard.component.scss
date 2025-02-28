@@ -200,10 +200,16 @@ button.portal-btn.details-btn.mdc-button.mdc-button--raised.mat-mdc-raised-butto
     
 }
 
-
 .flex-container {
   display: flex;
   flex-wrap: wrap;
   font-size: 30px;
   text-align: center;
+}
+
+.error-message {
+  font-size: 30px;
+  color: red;
+  text-align: center;
+  margin-top: 12rem;
 }

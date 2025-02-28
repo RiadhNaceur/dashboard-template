@@ -13,9 +13,9 @@ export class PartnerPortalService {
   getPartners(): Observable<Partner[]> {
     return this.http.get<Partner[]>(this.apiUrl).pipe(
     map(response => Object.values(response)),
-      catchError(() => {
-        console.error('Error fetching data');
-        return of([]);
+      catchError((error) => {
+        console.error('Error fetching data:', error);
+        throw new Error('Failed to load data.');
       })
     );
   }
