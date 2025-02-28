@@ -2,12 +2,37 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
+## About
+
+This project is for the Frontend assessment task given by Inflektion, to create a dashboard SPA using Angular.
+
+## Features
+
+- Fetch and Display Data from a Mock API
+- Table Features such as pagination and sorting
+- Interactivity like exporting to CSV and filtering
+- Loading spinner when fetching data (with a fake delay)
+
+## Tech stack
+
+- Angular 19.1.5
+- Standalone components
+- Angular Material
+- SCSS, Flexbox
+- Unit tests with Karma / Jasmine
+- Utils file for any middleware proxy / functions
+
 ## Development server
 
-To start a local development server, run:
+To start a local development server, clone the repository to your local then run:
 
 ```bash
-ng serve
+npm install
+```
+When finished, run 
+
+```bash
+npm run start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
