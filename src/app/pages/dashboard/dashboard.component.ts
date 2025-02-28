@@ -13,6 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PartnerPortalService, Partner } from '../../services/partner-portal.services';
 
+interface SortConfig {
+    column: string;
+    descending: boolean;
+}
+
 @Component({
     selector: 'app-dashboard',
     standalone: true,
@@ -33,10 +38,11 @@ import { PartnerPortalService, Partner } from '../../services/partner-portal.ser
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
     partners = signal<Partner[]>([]);
     loading = signal(true);
-    displayedColumns: string[] = ['id', 'name', 'type', 'contract', 'grossSales', 'commissions', 'conversions'];
+    displayedColumns: string[] = ['id', 'name', 'type', 'contract', 'grossSales', 'commissions', 'conversions', 'details'];
     dateRange = new FormGroup({
         start: new FormControl(new Date(2022, 6, 6)),
         end: new FormControl(new Date(2022, 7, 5))
@@ -47,6 +53,8 @@ export class DashboardComponent implements OnInit {
     totalPages = 1;
     totalItems = 0;
     paginatedData = signal<Partner[]>([]);
+    sortConfig: SortConfig  = { column: '', descending: false };
+    filterInput = '';
 
     constructor(
         private partnerPortalService: PartnerPortalService,
@@ -69,6 +77,10 @@ export class DashboardComponent implements OnInit {
             "arrow",
             this.domSanitizer.bypassSecurityTrustResourceUrl("/next.svg")
         );
+        this.matIconRegistry.addSvgIcon(
+            "details",
+            this.domSanitizer.bypassSecurityTrustResourceUrl("/details.svg")
+        );
     }
 
     ngOnInit(): void {
@@ -85,9 +97,53 @@ export class DashboardComponent implements OnInit {
     }
 
     updatePaginatedData(): void {
+        let data = [...this.partners()];
+        if (this.sortConfig.column) {
+            data = this.sortData(data, this.sortConfig.column, this.sortConfig.descending);
+        }
+        if (this.filterInput) {
+            data = this.filterData(data, this.filterInput);
+        }
         const start = (this.currentPage - 1) * this.itemsPerPage;
         const end = start + this.itemsPerPage;
-        this.paginatedData.set(this.partners().slice(start, end));
+        this.paginatedData.set(data.slice(start, end));
+    }
+
+    sortData(data: Partner[], column: string, descending: boolean): Partner[] {
+        if (!(column in data[0])) {
+            throw new Error(`Column ${column} is not a valid key of Partner`);
+        }
+        return data.sort((a, b) => {
+            const valA = a[column as keyof Partner];
+            const valB = b[column as keyof Partner];
+            if (typeof valA === 'number' && typeof valB === 'number') {
+                return (valA - valB) * (descending ? -1 : 1);
+            } else if (typeof valA === 'string' && typeof valB === 'string') {
+                return valA.localeCompare(valB) * (descending ? -1 : 1);
+            } else {
+                return 0;
+            }
+        });
+    }
+    
+
+    onSort(column: string): void {
+        if (this.sortConfig.column === column) {
+            this.sortConfig.descending = !this.sortConfig.descending;
+        } else {
+            this.sortConfig = { column, descending: false };
+        }
+        this.updatePaginatedData();
+    }
+
+    filterData(data: Partner[], filterInput: string): Partner[] {
+        return data.filter(partner => {
+            return (
+                partner.partnerName.toLowerCase().includes(filterInput.toLowerCase()) ||
+                partner.partnerType.toLowerCase().includes(filterInput.toLowerCase()) ||
+                partner.contract.toLowerCase().includes(filterInput.toLowerCase())
+            );
+        });
     }
 
     prevPage(): void {
@@ -113,6 +169,9 @@ export class DashboardComponent implements OnInit {
         return Math.min(end, this.totalItems);
     }
 
+    alertButton(): void {
+        alert('Details');
+    }
     showMessage() { alert('Message Partners Clicked'); }
     exportList() { alert('Export List Clicked'); }
 }

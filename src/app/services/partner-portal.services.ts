@@ -4,10 +4,10 @@ import { Observable, catchError, map, of } from 'rxjs';
 
 export interface Partner {
   id: number;
-  name: string;
-  type: string;
+  partnerName: string;
+  partnerType: string;
   contract: string;
-  grossSales: number;
+  grosssales: number;
   commissions: number;
   conversions: number;
 }

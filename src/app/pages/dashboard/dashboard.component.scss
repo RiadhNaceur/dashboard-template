@@ -107,6 +107,14 @@
     }
 }
 
+.previous-icon {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 .current-page {
     background: #4F26B8;
     padding: 2px;
@@ -122,4 +130,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+th {
+    cursor: pointer;
+    user-select: none;
+}
+
+button.portal-btn.details-btn.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-purple.mat-mdc-button-base {
+    background-color: #5E33CE;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: flex-start;
+
+    input{
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid;
+        width: 200px;
+    }
+    
 }
