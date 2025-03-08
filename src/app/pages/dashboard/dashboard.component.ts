@@ -159,7 +159,7 @@ export class DashboardComponent implements OnInit {
         alert('Details');
     }
 
-    showMessage() { alert('Message Partners Clicked'); }
+    showMessage() { alert('Static button Clicked'); }
 
     exportList(): void {
         const data = this.partners();
