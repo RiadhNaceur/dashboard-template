@@ -11,7 +11,9 @@ export class PartnerPortalService {
   private apiUrl = 'https://mockanapi.com/s/67cc14553a2804e4806fa85d/mockpartners?mock_delay=3000';
 
   getPartners(): Observable<Partner[]> {
-    return this.http.get<Partner[]>(this.apiUrl).pipe(
+    return this.http.get<Partner[]>(this.apiUrl, {
+      headers: {'x-api-key': 'CE4TMVNZ5G2UHSMPK2WDHH8C9A372U'},
+    }).pipe(
     map(response => Object.values(response)),
       catchError((error) => {
         console.error('Error fetching data:', error);
