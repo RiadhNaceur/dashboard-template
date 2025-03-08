@@ -1,10 +1,10 @@
-# InflektionFE
+# DashboardTemplate
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
 ## About
 
-This project is for the Frontend assessment task given by Inflektion, to create a dashboard SPA using Angular.
+This project is a simple dashboard SPA template using Angular, ready to change based on your needs.
 
 ## Features
 
@@ -12,7 +12,6 @@ This project is for the Frontend assessment task given by Inflektion, to create 
 - Table Features such as pagination and sorting
 - Interactivity like exporting to CSV and filtering
 - Loading spinner when fetching data (with a fake delay)
-- Error handling when API fails, or a column returns NULL/undefined/' '
   
 ## Tech stack
 
