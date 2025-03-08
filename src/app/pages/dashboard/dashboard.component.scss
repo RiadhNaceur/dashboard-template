@@ -16,7 +16,7 @@
     line-height: 15px;
 
     .initials {
-      background-color: #FF14B9;
+      background-color: #aad57e;
       color: #FFF;
       border-radius: 50%;
       width: 32px;
@@ -84,7 +84,7 @@ table {
 }
 
 .mat-portal-btn-bg {
-  background: linear-gradient(209.23deg, #5E33CE -49.55%, #1E0B50 82.75%), #5E33CE;
+  background: linear-gradient(209.23deg, #aad57e -49.55%, #1da584 82.75%), #aad57e;
 }
 
 .date-picker-container {
@@ -155,7 +155,7 @@ mat-form-field {
 
 .next-icon, .previous-icon {
   cursor: pointer;
-  stroke: #031050;
+  stroke: #1da584;
   fill: #FFF;
   width: 31px;
   height: 31px;
@@ -170,7 +170,7 @@ mat-form-field {
 }
 
 .current-page {
-  background: #4F26B8;
+  background: #1da584;
   padding: 2px;
   border-radius: 50%;
   width: 31px;
@@ -192,7 +192,7 @@ th {
 }
 
 button.portal-btn.details-btn.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-purple.mat-mdc-button-base {
-  background-color: #5E33CE;
+  background-color: #1da584;
 }
 
 .filter-container {

@@ -17,10 +17,8 @@
     transform: translateX(0);
   }
 
-  .logo {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 20px;
+  .logo img {
+    width: 136px;
   }
 
   nav ul {
@@ -40,7 +38,7 @@
       }
 
       ::ng-deep .sidebar-icon mat-icon svg {
-        fill: #031050;
+        fill: #1da584;
         fill-opacity: 0.5;
       }
 
@@ -59,8 +57,8 @@
 
       &.active-link,
       &:hover {
-        background: #031050;
-        border-left: 6px solid #FF13B8;
+        background: #1da584;
+        border-left: 6px solid #aad57e;
 
         a {
           color: #FFF;
@@ -68,7 +66,7 @@
         }
 
         ::ng-deep .sidebar-icon mat-icon svg {
-          fill: #FF13B8;
+          fill: #aad57e;
           fill-opacity: 1;
         }
       }
