@@ -30,7 +30,7 @@ describe('PartnerPortalService', () => {
       expect(partners).toBeTruthy();
     });
 
-    const req = httpTestingController.expectOne('https://mockanapi.com/s/67ae1b3403f9ffca6f47eb79/partners?mock_delay=5000');
+    const req = httpTestingController.expectOne('https://mockanapi.com/s/67cc14553a2804e4806fa85d/mockpartners?mock_delay=3000');
     expect(req.request.method).toEqual('GET');
   });
 });

@@ -8,7 +8,7 @@ import { Partner } from '../models/partner.model';
 })
 export class PartnerPortalService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://mockanapi.com/s/67ae1b3403f9ffca6f47eb79/partners?mock_delay=5000';
+  private apiUrl = 'https://mockanapi.com/s/67cc14553a2804e4806fa85d/mockpartners?mock_delay=3000';
 
   getPartners(): Observable<Partner[]> {
     return this.http.get<Partner[]>(this.apiUrl).pipe(
