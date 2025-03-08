@@ -1,12 +1,12 @@
 {
-  "name": "inflektion-fe",
+  "name": "dashboard-template",
   "version": "0.0.0",
-  "homepage": "https://riadhnaceur.github.io/inflektion-FE",
+  "homepage": "https://riadhnaceur.github.io/dashboard-template",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "ng build --configuration production && gh-pages -d dist/inflektion-fe",
+    "deploy": "ng build --configuration production && gh-pages -d dist/dashboard-template",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
